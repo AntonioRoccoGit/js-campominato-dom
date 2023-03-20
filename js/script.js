@@ -9,6 +9,7 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
  */
 
+
 // DOM ELEMENT
 const myGridElem = document.querySelector(".grid");
 const playButton = document.getElementById("play-button");
@@ -38,7 +39,6 @@ playButton.addEventListener("click", function(){
         boxGeneration(100, "easy", myGridElem);
         bombs = bombArreygenerate(16, 100);
     }
-    console.log(bombs);
 })
 
 
@@ -60,7 +60,6 @@ mainText.addEventListener("click", function(){
         boxGeneration(100, "easy", myGridElem);
         bombs = bombArreygenerate(16, 100);
     }
-    console.log(bombs);
 })
 
 /////////////////////////
@@ -85,7 +84,6 @@ function boxGeneration(numbBox, lvlMode, myGrid) {
     function boxClick() {
         // if(this.classList.contains("clicked"))return;
         const myBoxArray = document.querySelectorAll(".box");
-        console.log(this.innerHTML);
         if (bombs.includes(parseInt(this.innerHTML))){
             this.style.backgroundColor = "rgb(255,0,0)";
             
