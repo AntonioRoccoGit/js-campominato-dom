@@ -30,7 +30,7 @@ playButton.addEventListener("click", function(){
 
     if (lvlSelect.value === "hard"){
         boxGeneration(49, "hard", myGridElem);
-        bombs = bombArreygenerate(1, 49);
+        bombs = bombArreygenerate(16, 49);
     }else if (lvlSelect.value === "medium"){
         boxGeneration(81, "medium", myGridElem);
         bombs = bombArreygenerate(16, 81);
@@ -83,10 +83,12 @@ function boxGeneration(numbBox, lvlMode, myGrid) {
     
     //box click handle
     function boxClick() {
+        // if(this.classList.contains("clicked"))return;
         const myBoxArray = document.querySelectorAll(".box");
         console.log(this.innerHTML);
         if (bombs.includes(parseInt(this.innerHTML))){
             this.style.backgroundColor = "rgb(255,0,0)";
+            
             //gestiamo la sconfitta
             mainText.innerText = "Mi discpiace, hai perso";
             mainText.classList.remove("hidden");
@@ -99,9 +101,13 @@ function boxGeneration(numbBox, lvlMode, myGrid) {
             }
             pointCounter = 0;
         }else {
+            this.classList.add("clicked");
             pointCounter++
             this.style.backgroundColor = "rgb(26, 174, 233)";
+            this.style.pointerEvents = "none";
+
             document.getElementById("point").innerHTML = pointCounter;
+            
             if (myBoxArray.length - pointCounter - 1 === 0){
                 mainText.innerText = "Congratulazioni, hai raggiunto il punteggio massimo";
                 mainText.classList.remove("hidden");
