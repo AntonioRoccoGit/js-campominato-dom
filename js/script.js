@@ -99,7 +99,7 @@ function boxGeneration(numbBox, lvlMode, myGrid) {
             }
             pointCounter = 0;
         }else {
-            this.classList.add("clicked");
+            //this.classList.add("clicked");
             pointCounter++
             this.style.backgroundColor = "rgb(26, 174, 233)";
             this.style.pointerEvents = "none";
